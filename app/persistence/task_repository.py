@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from persistence.models import Task
+from app.persistence.models import Task
 
 
 class TaskRepository:
@@ -13,7 +13,7 @@ class TaskRepository:
         return self.db.query(Task).filter(Task.id == item_id).first()
 
     def create_task(self, name: str):
-        task = Task(name=name)
+        task = Task(name=name, status="pending")
         self.db.add(task)
         self.db.commit()
         self.db.refresh(task)

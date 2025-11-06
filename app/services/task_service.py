@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from persistence.task_repository import TaskRepository
-from persistence.models import Task
+from app.persistence.task_repository import TaskRepository
+from app.persistence.models import Task
 
 
 class TaskService:

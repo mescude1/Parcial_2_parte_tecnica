@@ -1,10 +1,11 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
-from persistence import models
-from persistence.database_setup import engine, get_db
-from persistence.schemas import TaskCreate, TaskStatusUpdate, TaskResponse
-from services.task_service import TaskService
+
+from app.persistence.database_setup import engine, get_db
+from app.persistence.schemas import TaskCreate, TaskStatusUpdate, TaskResponse
+from app.services.task_service import TaskService
+from app.persistence import models
 
 models.Base.metadata.create_all(bind=engine)
 
